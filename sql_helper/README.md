@@ -2,7 +2,7 @@
 
 Helper functions and classes for executing python unit tests that require interaction with a postgres database.
 
-See function/class docstrings for more information.
+See [function/class docstrings](./sql_helper/__init__.py) for more information.
 
 ## Installation:
 

@@ -12,8 +12,8 @@ pip install 'git+https://github.com/MarkUsProject/autotest-helpers.git'
 
 ## Packages
 
-### [SQL Helper](sql_helper/README.md)
+### [SQL Helper](sql_helper)
 
-### [C Helper](c_helper/README.md)
+### [C Helper](c_helper)
 
-### [Notebook Importer](notebook_importer/README.md)
+### [Notebook Importer](notebook_importer)
