@@ -5,7 +5,7 @@ from typing import Union
 
 def _load_notebook(notebook: Union[str, NotebookNode]) -> NotebookNode:
     if isinstance(notebook, str):
-        with open(notebook) as f:
+        with open(notebook, encoding="utf-8") as f:
             notebook = nbformat.read(f, as_version=4)
 
     assert notebook["nbformat"] >= 4
