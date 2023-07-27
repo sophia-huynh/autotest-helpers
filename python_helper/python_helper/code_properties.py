@@ -359,7 +359,8 @@ def get_recursive(obj_or_path: str | ModuleType | list,
         for item in obj_or_path:
             ap.parse(item)
     else:
-        ap.parse(obj_or_path)
+        path = _get_path(obj_or_path)
+        ap.parse(path)
 
     return ap.get_recursive(indirect=indirect)
 
@@ -377,7 +378,8 @@ def get_functions_using(obj_or_path: str | ModuleType | list,
         for item in obj_or_path:
             ap.parse(item)
     else:
-        ap.parse(obj_or_path)
+        path = _get_path(obj_or_path)
+        ap.parse(path)
 
     return ap.get_functions_using(ast_types, indirect=indirect)
 
@@ -395,7 +397,8 @@ def get_functions_that_call(obj_or_path: str | ModuleType | list,
         for item in obj_or_path:
             ap.parse(item)
     else:
-        ap.parse(obj_or_path)
+        path = _get_path(obj_or_path)
+        ap.parse(path)
 
     dependencies = ap.get_dependencies(indirect=indirect)
     called = set()
