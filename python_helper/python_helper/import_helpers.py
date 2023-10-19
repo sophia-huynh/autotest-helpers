@@ -4,14 +4,18 @@ from traceback import format_exception_only
 from types import ModuleType
 
 
-def module_fixture(modname: str):
+def module_fixture(modname: str, ignore_top_level_python_ta: bool = True):
     """Return a pytest fixture to import the given module."""
 
     @pytest.fixture(scope="module", name=modname)
     def submission():
         f"""The imported module {modname}"""
         try:
-            mod = importlib.import_module(modname)
+            if ignore_top_level_python_ta:
+                with patch.object(python_ta, 'check_all', return_value=None):
+                    mod = importlib.import_module(modname)
+            else:
+                mod = importlib.import_module(modname)
         except Exception as e:
             msg = f'Could not successfully import {modname}.' \
                   f'\nDetails:\n\n{"".join(format_exception_only(e))}'
